@@ -1,0 +1,52 @@
+ion-content {
+  --background: transparent;
+}
+
+.square {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  width: 250px;
+  height: 250px;
+
+  --b: 5px;
+  --c: repeating-linear-gradient(45deg, red, blue); /* color of the border */
+  --w: 40px; /* width of border */
+  padding: var(--b); /* space for the border */
+  box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.3);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--c, red);
+    --_g: #0000 90deg, #000 0;
+    --_p: var(--w) var(--w) no-repeat;
+    --mask: conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g))
+        0 0 / var(--_p),
+      conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100%
+        0 / var(--_p),
+      conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0
+        100% / var(--_p),
+      conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g))
+        100% 100% / var(--_p);
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+}
+
+.zoom_ratio_wrapper {
+  background-color: white;
+  padding: 8px;
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: 50%;
+
+  mat-slider {
+    width: 90%;
+  }
+}

@@ -1,0 +1,30 @@
+<ion-content class="ion-padding">
+	<ion-grid>
+		<ion-row>
+			<ion-col size="3"> </ion-col>
+			<ion-col style="color: white; display: flex; justify-content: center; align-items: center" size="6">
+				Scan QR
+			</ion-col>
+			<ion-col style="display: flex; justify-content: center; align-items: center" size="3">
+				<ion-button fill="clear" size="small" shape="round" (click)="closeModal()" aria-label="Favorite">
+					<ion-icon name="close" aria-hidden="true"></ion-icon>
+				</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<div #square class="square"></div>
+
+<ng-container *ngIf="isTorchAvailable">
+    <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button (click)="toggleTorch()">
+            <ion-icon name="flashlight"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ng-container>
+
+	<div class="zoom_ratio_wrapper">
+		<!-- <mat-slider [min]="minZoomRatio" [max]="maxZoomRatio">
+			<input (input)="setZoomRatio($any($event))" matSliderThumb />
+		</mat-slider> -->
+	</div>
+</ion-content>
